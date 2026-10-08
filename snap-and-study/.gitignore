@@ -1,0 +1,14 @@
+# Secrets
+.streamlit/secrets.toml
+.env
+
+# Virtual environments
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
