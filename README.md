@@ -250,7 +250,7 @@ streamlit run app.py
 | Secret | Purpose |
 |---|---|
 | `GEMINI_API_KEY` | Authenticates requests to Google Gemini. |
-| `GEMINI_MODEL` | Gemini model name. The app uses `gemini-2.5-flash` when this is omitted. Choose a model available to your API key. |
+| `GEMINI_MODEL` | Gemini model name. The app uses `gemini-3.8-flash-lite` when this is omitted. Choose a model available to your API key. |
 | `GMAIL_ADDRESS` | Gmail account used as the SMTP sender. |
 | `GMAIL_APP_PASSWORD` | Gmail App Password used for SMTP authentication. |
 | `MONGODB_URI` | MongoDB Atlas connection string. |
@@ -318,24 +318,6 @@ The summary prompt asks Gemini to summarize the actual conversation, including m
 
 Do not put production credentials in GitHub repository files or commit messages.
 
-## Testing checklist
-
-There is no dedicated automated test suite in the current project. Use this manual checklist after local setup or deployment:
-
-- [ ] With no identity cookie, the onboarding form is shown.
-- [ ] Submit a valid name and email; confirm onboarding completes and the identity cookie is set.
-- [ ] Ask a text question and confirm Gemini responds and the conversation appears in history.
-- [ ] Upload a supported image and confirm Gemini analyzes it.
-- [ ] Ask a text follow-up about the image and confirm the previous image context is available.
-- [ ] Refresh the browser; confirm identity is restored, onboarding is skipped, and MongoDB history loads.
-- [ ] Open an older conversation; confirm its text and uploaded images are restored.
-- [ ] Continue a restored conversation with a follow-up and confirm it saves.
-- [ ] Start a new conversation; confirm older history remains available.
-- [ ] Delete a conversation after confirmation; confirm its associated images are removed and other history remains.
-- [ ] Request a study-session summary and verify Gmail delivery with properly configured SMTP credentials.
-- [ ] Ask an unrelated question and confirm the assistant redirects toward academic help.
-- [ ] Use **Change student**; confirm the identity cookie and session identity are cleared while MongoDB conversations remain.
-- [ ] Test missing or unreachable MongoDB, invalid image uploads, and Gemini/Gmail configuration errors.
 
 ## Example use cases
 
@@ -368,35 +350,8 @@ Ideas for future work (not currently implemented):
 
 **Omprakash Karri**
 
-## License
 
-This project is distributed under the MIT License:
 
-```text
-MIT License
-
-Copyright (c) 2026 Omprakash Karri
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-## Acknowledgements
 
 - [Streamlit](https://streamlit.io/) for the Python app framework.
 - [Google Gemini](https://ai.google.dev/) and the `google-genai` SDK for multimodal generative AI.
